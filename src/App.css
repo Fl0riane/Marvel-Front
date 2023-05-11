@@ -1,4 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+body {
+  font-family: "Russo One", sans-serif;
+  background-color: #202020;
+}
+
 .container {
   margin: 0 auto;
   width: 1220px;
+  padding: 20px;
+}
+.all {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
+button {
+  all: unset;
+}
+.bigPic {
+  position: relative;
+  background-color: white;
+  border: 10px solid #e62428;
+  display: flex;
+  align-items: center;
+}
+.bigPic span {
+  display: flex;
+}
+.bigPic img {
+  width: 500px;
+}
+.bigPic h1 {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  width: 500px;
+  font-size: 30px;
+}
+.bigPic span button {
+  border-radius: 50%;
+  padding: 8px;
+  background-color: #202020;
+  color: gold;
+  border: 1px solid #e62428;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.bigPic span button:hover {
+  color: black;
+  background-color: gold;
+}
+
+.bigPic div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bigPic div button {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #202020;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bigPic h4 {
+  margin: 50px 30px;
+  font-size: 26px;
+  text-align: justify;
+}
+.carroussel {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  display: flex;
+  gap: 20px;
+  width: 1220px;
+}
+input {
+  border: 1px solid red;
 }

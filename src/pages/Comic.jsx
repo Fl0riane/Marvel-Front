@@ -1,21 +1,21 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import img from "../assets/img/fack.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Character = () => {
+const Comic = () => {
   const [data, setData] = useState();
   const [IsLoading, setIsLoading] = useState(true);
   const { id } = useParams();
+
   // console.log({ id });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--back-end-marvel--p2d7k4xwpzzq.code.run/character/${id}`
+          `https://site--back-end-marvel--p2d7k4xwpzzq.code.run/comic/${id}`
         );
         setData(response.data);
         console.log(response.data);
@@ -30,10 +30,12 @@ const Character = () => {
   return IsLoading ? (
     <p>Loading...</p>
   ) : (
-    <section className="bigPic" key={data._id}>
-      <article>
+    <section className="bigPic">
+      <article key={data._id}>
         <span>
-          {" "}
+          <button>
+            <FontAwesomeIcon icon="fa-solid fa-star" />
+          </button>
           {data.thumbnail.path ? (
             <img
               src={
@@ -43,18 +45,15 @@ const Character = () => {
                 "." +
                 data.thumbnail.extension
               }
-              alt={data.name}
+              alt={data.title}
             />
           ) : (
             <img src={img} alt="img" />
           )}
-          <button>
-            <FontAwesomeIcon icon="fa-solid fa-star" />
-          </button>
         </span>
       </article>
       <div>
-        <h1>{data.name}</h1>
+        <h1>{data.title}</h1>
         {data.description ? (
           <h4>{data.description}</h4>
         ) : (
@@ -64,12 +63,10 @@ const Character = () => {
             Voluptatum eos fugit in natus, qui expedita aperiam iste autem,
             perspiciatis eaque quam.
           </h4>
-        )}
-        <Link to={`/comics/${data._id}`}>
-          <button> GO TO COMICS</button>
-        </Link>
+        )}{" "}
       </div>
     </section>
   );
 };
-export default Character;
+
+export default Comic;

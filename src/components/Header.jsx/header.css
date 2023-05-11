@@ -1,7 +1,6 @@
 header {
   margin: 0 auto;
-  background-color: black;
-  height: 80px;
+  background-color: #202020;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,5 +17,11 @@ header img {
   object-fit: cover;
 }
 header p {
+  font-size: 25px;
+  padding: 25px;
   color: white;
+}
+header p:hover {
+  padding: 25px;
+  color: rgb(102, 101, 99);
 }
