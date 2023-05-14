@@ -17,7 +17,7 @@ import Home from "./pages/Home";
 import Comic from "./pages/Comic";
 import CharactComics from "./pages/CharatComics";
 import Favorites from "./pages/Favorites";
-import SignUp from "./pages/signup";
+import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -67,16 +67,6 @@ const App = () => {
       newTab.push({ ...item });
       setTab(newTab);
     }
-  };
-
-  const handleClickPlus = () => {
-    setCounter(counter - 1);
-    setSkip(skip - 100);
-  };
-
-  const handleClickMinus = () => {
-    setCounter(counter + 1);
-    setSkip(skip + 100);
   };
 
   const handleUserData = (userData) => {
