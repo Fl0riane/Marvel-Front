@@ -33,7 +33,9 @@ const Character = () => {
     <section className="bigPic" key={data._id}>
       <article>
         <span>
-          {" "}
+          <button>
+            <FontAwesomeIcon icon="fa-solid fa-star" />
+          </button>
           {data.thumbnail.path ? (
             <img
               src={
@@ -48,9 +50,6 @@ const Character = () => {
           ) : (
             <img src={img} alt="img" />
           )}
-          <button>
-            <FontAwesomeIcon icon="fa-solid fa-star" />
-          </button>
         </span>
       </article>
       <div>

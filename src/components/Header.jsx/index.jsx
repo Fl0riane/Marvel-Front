@@ -1,36 +1,48 @@
 import logo from "../../assets/img/logoMarvel.png";
 import "./header.css";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = (research, setResearch) => {
+const Header = ({ token, handleUserData, setVisible, visible }) => {
   return (
     <header>
       <img src={logo} alt="logo Marvel" />
       <div>
         <Link to="/characters">
-          <p>CHARACTERS</p>
+          <h2>CHARACTERS</h2>
         </Link>
 
         <Link to="/comics">
-          <p>COMICS</p>
+          <h2>COMICS</h2>
         </Link>
 
-        <Link>
-          <p>FAVORIS</p>
+        <Link to="/favorites">
+          <h2>FAVORIS</h2>
         </Link>
-      </div>
-      <div className="research">
-        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
-        <input
-          type="text"
-          name="header input"
-          placeholder="Recherche des articles"
-          value={research}
-          onChange={(event) => {
-            setResearch(event.target.value);
-          }}
-        />
+        {token ? (
+          <Link to="/">
+            <div>
+              <button
+                className="login"
+                onClick={() => {
+                  handleUserData(null, null);
+                }}
+              >
+                DECONNEXION
+              </button>
+            </div>
+          </Link>
+        ) : (
+          <div>
+            <button
+              className="login"
+              onClick={() => {
+                setVisible(!visible);
+              }}
+            >
+              <p>CONNEXION</p>
+            </button>
+          </div>
+        )}
       </div>
     </header>
   );

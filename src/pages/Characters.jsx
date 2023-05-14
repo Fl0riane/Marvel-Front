@@ -1,19 +1,40 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CharacterCard from "../components/CharacterCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Characters = ({ research, limit, skip, sort }) => {
+import Pagination from "../components/Pagination/Pagination";
+
+const Characters = () => {
   const [data, setData] = useState("");
   const [IsLoading, setIsLoading] = useState(true);
+  const [sort, setSort] = useState("");
+  const [research, setResearch] = useState("");
+  const [page, setPage] = useState(1);
+
+  const handleSearch = (event) => {
+    setResearch(event.target.value);
+  };
+  const handleClickPlus = () => {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  };
+  const handleClickMinus = () => {
+    setPage(page + 1);
+  };
+
   // console.log(data);
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const limit = 100;
+        const skip = (page - 1) * limit;
         const response = await axios.get(
-          `https://site--back-end-marvel--p2d7k4xwpzzq.code.run/characters?$name=${research}&limit=${limit}&skip=${skip}&sort=${sort}`
+          `https://site--back-end-marvel--p2d7k4xwpzzq.code.run/characters?name=${research}&limit=${limit}&skip=${skip}&sort=${sort}`
         );
-        setData(response.data);
-        console.log(response.data);
+        setData(response.data.results);
+        console.log(response.data.results);
 
         setIsLoading(false);
       } catch (error) {
@@ -21,19 +42,47 @@ const Characters = ({ research, limit, skip, sort }) => {
       }
     };
     fetchData();
-  }, [skip, limit, sort, research]);
+  }, [research, page]);
 
   return IsLoading ? (
     <p>Page is Loading</p>
   ) : (
     <section>
-      <div className="all">
-        {data.results.map((character) => {
-          return (
-            <CharacterCard key={character._id} characterData={character} />
-          );
-        })}
+      <div className="research">
+        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+        <input
+          type="text"
+          name="header input"
+          placeholder="Recherche tes personnages préférés"
+          onChange={handleSearch}
+        />
       </div>
+
+      <div className="sort">
+        <h5>trier </h5>
+        <button
+          onClick={() => {
+            setSort("A-Z");
+          }}
+        >
+          A-Z
+        </button>
+        <button
+          onClick={() => {
+            setSort("Z-A");
+          }}
+        >
+          Z-A
+        </button>
+      </div>
+      <div>
+        <CharacterCard data={data} sort={sort} setSort={setSort} />
+      </div>
+      <Pagination
+        handleClickPlus={handleClickPlus}
+        handleClickMinus={handleClickMinus}
+        page={page}
+      />
     </section>
   );
 };

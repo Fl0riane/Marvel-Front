@@ -1,0 +1,76 @@
+.modal-root {
+  position: absolute;
+  background-color: rgb(32, 32, 32, 0.9);
+  height: 100hw;
+  width: 100vw;
+  top: 0;
+  left: 0;
+
+  align-items: start;
+}
+.modal {
+  border: 1px solid #e62428;
+  box-sizing: border-box;
+  background-color: rgb(102, 101, 99);
+  width: 350px;
+  height: 450px;
+  opacity: revert;
+  margin: 300px auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px;
+  border-radius: 5px;
+}
+.modal > button:first-child {
+  margin-bottom: 20px;
+  text-align: end;
+  font-size: 24px;
+  background-color: none;
+  color: rgb(32, 32, 32, 0.8);
+}
+.modal h2 {
+  margin-top: 10px;
+}
+.modal nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+.modal div {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal :last-child > div {
+  border-bottom: 1px solid #c4c4c4;
+  padding-bottom: 20px;
+}
+.modal p {
+  all: unset;
+
+  font-size: 14px;
+}
+.modal .white {
+  margin-left: 5px;
+  color: white;
+}
+
+.modal .white:hover {
+  margin-left: 5px;
+  color: #c4c4c4;
+}
+
+.modal img {
+  width: 20px;
+}
+.modal .minus p {
+  font-size: 12px;
+}

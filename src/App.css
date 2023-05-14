@@ -4,7 +4,12 @@ body {
   font-family: "Russo One", sans-serif;
   background-color: #202020;
 }
-
+button {
+  font-family: "Russo One", sans-serif;
+}
+input {
+  font-family: "Russo One", sans-serif;
+}
 .container {
   margin: 0 auto;
   width: 1220px;
@@ -13,22 +18,40 @@ body {
 .all {
   padding-top: 20px;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-around;
 }
 button {
-  all: unset;
+  background-color: unset;
+  border: unset;
 }
+.sort {
+  display: flex;
+  padding-top: 10px;
+  color: white;
+}
+.sort button {
+  color: white;
+}
+.research {
+  padding: 7px;
+  background-color: white;
+  border: 1px solid #e62428;
+  width: 400px;
+}
+.research input {
+  border: none;
+}
+
 .bigPic {
-  position: relative;
   background-color: white;
   border: 10px solid #e62428;
   display: flex;
   align-items: center;
 }
 .bigPic span {
+  position: relative;
   display: flex;
 }
 .bigPic img {
@@ -48,8 +71,8 @@ button {
   color: gold;
   border: 1px solid #e62428;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 20px;
 }
 .bigPic span button:hover {
   color: black;
@@ -63,13 +86,25 @@ button {
 }
 .bigPic div button {
   padding: 20px;
-  border-radius: 5px;
   background-color: #202020;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+.bigPic div button:hover {
+  color: rgb(102, 101, 99);
+}
+
+.bigPic div button::before {
+  content: "";
+  border-bottom: 15px solid white;
+  border-left: 15px solid transparent;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .bigPic h4 {
@@ -87,4 +122,76 @@ button {
 }
 input {
   border: 1px solid red;
+}
+
+.form {
+  padding-top: 30px;
+  background-color: rgb(102, 101, 99);
+  border: 1px solid #e62428;
+  margin: 200px auto;
+  width: 350px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.form div {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.form input {
+  box-sizing: border-box;
+  border-radius: 2px;
+  width: 300px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: none;
+}
+
+.form :last-child button {
+  box-sizing: border-box;
+  background-color: #e62428;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 10px;
+  width: 300px;
+  position: relative;
+}
+.form :last-child button::before {
+  content: "";
+  border-bottom: 15px solid rgb(102, 101, 99); /*couleur du fond derrière le bouton*/
+  border-left: 15px solid transparent;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.form p {
+  text-align: center;
+  margin-top: 20px;
+  color: #202020;
+}
+.form nav {
+  margin-left: 260px;
+  margin-bottom: 20px;
+  font-size: x-large;
+  color: #202020;
+  opacity: 70%;
+}
+footer {
+  margin-top: 80px;
+  text-align: center;
+  color: rgb(102, 101, 99);
+}
+.home {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  margin: 150px;
 }

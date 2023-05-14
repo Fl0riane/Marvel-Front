@@ -1,5 +1,9 @@
 const Home = () => {
-  return <div>je suis dans home</div>;
+  return (
+    <div className="home">
+      <h1>Bienvenue dans l'univers Marvel</h1>
+    </div>
+  );
 };
 
 export default Home;

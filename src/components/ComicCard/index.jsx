@@ -1,24 +1,34 @@
 import "./comic.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const ComicCard = ({ comicData }) => {
-  console.log(comicData);
+
+const ComicCard = ({ data }) => {
   return (
-    <Link to={`/comic/${comicData._id}`} key={comicData._id}>
+    <div className="all">
+      {data.map((comic) => (
+        <ComicCardData key={comic._id} comic={comic} />
+      ))}
+    </div>
+  );
+};
+
+const ComicCardData = ({ comic }) => {
+  return (
+    <Link to={`/comic/${comic._id}`} key={comic._id}>
       <article className="littlePic">
         <img
           src={
-            comicData.thumbnail.path +
+            comic.thumbnail.path +
             "/" +
             "portrait_xlarge" +
             "." +
-            comicData.thumbnail.extension
+            comic.thumbnail.extension
           }
-          alt={comicData.title}
+          alt={comic.title}
         />
 
         <span>
-          <h2>{comicData.title}</h2>
+          <h2>{comic.title}</h2>
           <button>
             <FontAwesomeIcon icon="fa-solid fa-star" />
           </button>

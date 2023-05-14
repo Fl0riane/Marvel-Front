@@ -16,12 +16,35 @@ header img {
   height: 80%;
   object-fit: cover;
 }
-header p {
+header h2 {
   font-size: 25px;
   padding: 25px;
   color: white;
 }
-header p:hover {
+header h2:hover {
   padding: 25px;
   color: rgb(102, 101, 99);
+}
+
+header p {
+  color: white;
+}
+header button {
+  padding: 10px;
+  background-color: rgb(102, 101, 99);
+  position: relative;
+  height: 50%;
+  color: white;
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+.login::before {
+  content: "";
+
+  border-bottom: 15px solid #202020; /*couleur du fond derrière le bouton*/
+  border-left: 15px solid transparent;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }

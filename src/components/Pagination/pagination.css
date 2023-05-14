@@ -1,0 +1,9 @@
+.pagin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pagin p {
+  color: white;
+  margin: 0 10px;
+}
