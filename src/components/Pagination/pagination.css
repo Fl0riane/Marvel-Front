@@ -1,7 +1,7 @@
 .pagin {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .pagin p {
   color: white;
